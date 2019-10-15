@@ -25,7 +25,7 @@ class Article
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\Length(min=0,max=500,minMessage="Le prix doit être minimum 0",maxMessage="Le prix ne peut pas dépasser 500€")
+     * @Assert\Range(min=0,max=500,minMessage="Le prix doit être minimum 0",maxMessage="Le prix ne peut pas dépasser 500€")
      */
     private $prix;
 
