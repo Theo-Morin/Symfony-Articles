@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des articles{% endblock %}
+
+{% block body %}
+    <div class="container mt-5 mb-3">
+    <a href="/article/new"><div class="btn btn-success float-right">Créer un article</div></a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Libelle</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for article in articles %}
+                    <tr>
+                        <th scope="row">{{ article.id }}</th>
+                        <td>{{ article.libelle }}</td>
+                        <td>{{ article.prix }}€</td>
+                        <td><a href="/article/{{article.id}}/edit"><button class="btn btn-warning ml-2 mr-2"><i class="fas fa-pen"></i></button></a><a href="#" onclick="confDelete('{{article.id}}')"><button class="btn btn-danger ml-2 mr-2"><i class="fas fa-trash"></i></button></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+{% block javascripts %}
+<script>
+    function confDelete( id)
+    {
+        if(confirm("Voulez vous vraiment supprimer l'article : " + id + "?"))
+        {
+            document.location = '/article/' + id + "/delete";
+        }
+    }
+</script>
+{% endblock %}

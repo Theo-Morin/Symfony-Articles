@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes articles{% endblock %}
+
+{% block body %}
+<div class="container mt-5 mb-3">
+    <div class="row">
+    {% for article in articles %}
+        <div class="col-4 mt-3">
+            <div class="card">
+                <img src="{{article.image}}">
+                <div class="card-body">
+                    <div class="card-title">{{article.libelle}} - {{article.prix}}€</div>
+                    {{article.description}}
+                    <a href="/article/{{article.id}}"><button class="btn btn-primary mt-3 float-right">More</button></a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
