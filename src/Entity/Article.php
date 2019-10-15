@@ -31,6 +31,7 @@ class Article
 
     /**
      * @ORM\Column(type="text", nullable=false)
+     * @Asset/NotBlank()
      * @Assert\Length(min=10,max=200,minMessage="La description ne peut pas être vide !",maxMessage="La description doit contenir au maximum 200 caractères")
      */
     private $description;
