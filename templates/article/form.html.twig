@@ -4,7 +4,7 @@
 
 {% block body %}
 <div class="container mt-5 mb-3">
-    <a href="/list"><div class="btn btn-danger float-right">Annuler</div></a>
+    <a href="{{ path('list') }}"><div class="btn btn-danger float-right">Annuler</div></a>
     <div class="form-group">
         <h3 class="text-center mb-2">{% if create == true %}Nouvel article{% else %}Modifier : {{article.libelle}}{% endif %}</h3>
         {{ form_start(form) }}
